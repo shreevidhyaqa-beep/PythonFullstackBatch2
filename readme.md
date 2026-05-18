@@ -21,3 +21,27 @@
 * NoneType
 * byte
 
+# Operators
+ * Arithmetic
+ * Logical 
+ * Assignment
+ * Membership
+ * Comparision
+ * identity
+
+ # decorator
+ adding the extra functionality to the existing code withoout modifying original code
+  Functions can be 
+  * store it in variable
+  * passed as an argument to another function
+  * returned from a function
+``` python
+def greet_employee(name):
+    print(f"welcome::{name}")
+
+```
+# store in a variable
+``` python
+welcome_employee=greet_employee
+welcome_employee("Shree") #
+```
