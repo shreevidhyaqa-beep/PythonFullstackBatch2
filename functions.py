@@ -196,43 +196,119 @@ projects = [] # list
 # square= lambda num:num*num
 # print(square(5))
 
-employees={
-    101:{"name":"samhita","salary":50000},
-    102:{"name":"shashank","salary":45000},
-    103:{"name":"Bharat","salary":60000},
-}
+# employees={
+#     101:{"name":"samhita","salary":50000},
+#     102:{"name":"shashank","salary":45000},
+#     103:{"name":"Bharat","salary":60000},
+# }
 # print(employees)
 
 # sorted_employees=sorted(employees.items(),key= lambda emp:emp[1]["salary"] )
 # print("sorted on salary",sorted_employees)
 #endregion
-# recursive functions
-def function():
-    function()# recursive call
-    # base condition
+# region recursive functions
+# def function():
+#     function()# recursive call
+#     # base condition
 
-def fibonacci(n):
-    #base condition
-    if n<=1:
-        return n
-    else:
-        return fibonacci(n-1)+fibonacci(n-2)
+# def fibonacci(n):
+#     #base condition
+#     if n<=1:
+#         return n
+#     else:
+#         return fibonacci(n-1)+fibonacci(n-2)
 
-print(fibonacci(6))
+# print(fibonacci(6))
 
-employee_ids=list(employees.keys())
-# print dictionary of employees  recursively
-def display_employees(index=0):
-    #base condition
-    if index>=len(employees):
-        print("All employees displayed")
-        return
-    emp_id=employee_ids[index]
-    #print(f" id::{emp_id}\tname::{[emp_id]["name"]}\t salary::{[emp_id]["salary"]}")
-    print(
-    f" id::{emp_id} |"
-    f" Name::{[emp_id]['name']}"
-    )
-    display_employees(index+1)
+# employee_ids=list(employees.keys())
+# # print dictionary of employees  recursively
+# def display_employees(index=0):
+#     #base condition
+#     if index>=len(employees):
+#         print("All employees displayed")
+#         return
+#     emp_id=employee_ids[index]
+#     #print(f" id::{emp_id}\tname::{[emp_id]["name"]}\t salary::{[emp_id]["salary"]}")
+#     print(
+#     f" id::{emp_id} |"
+#     f" Name::{employees[emp_id]['name']}"
+#     )
+#     display_employees(index+1)
 
-display_employees()
+# display_employees()
+#endregion
+# Iterators
+# scores=[100,45,75,80]
+# scoreIter=iter(scores)
+# print(scoreIter)
+
+# print(scoreIter.__next__())
+# print(next(scoreIter))
+# print(next(scoreIter))
+# print(next(scoreIter))
+# #this line will give error because elements are four only
+# #print(next(scoreIter))
+
+# contact_tuple=(123,456,789)
+# for item in iter(contact_tuple):
+#     print(item)
+
+# #print index along with values
+# #enumerate()---Index tracking
+
+# for index,score in enumerate(scores):
+#     print(f"{index}\t{score}")
+
+
+#generator
+# def numbers():
+#     yield 1
+#     yield 2
+#     yield 3
+
+# gen=numbers()
+# print(next(gen))
+# print(next(gen))
+# print(next(gen))
+# print(next(gen))
+
+# def count_numbers(n):
+#     for i in range(1,n+1):
+#         yield i
+
+# gen=count_numbers(6)
+# for count in gen:
+#     print(count)
+
+# employees= [
+
+#    { "id":101,"name":"shree"},
+#     { "id":102,"name":"vidya"},
+#     { "id":103,"name":"bharat"},
+# ]
+
+# def employee_generator():
+#     for emp in employees:
+#         yield emp
+
+# empGen=employee_generator()
+# for emp in empGen:
+#     print(emp)
+
+
+def employee_generateLongSequence():
+    for i in range(1,10):
+        yield {
+        "id":i,
+        "name":f"Emp{i}",
+        "dept":"HR"
+
+    }
+
+long_emp=employee_generateLongSequence()
+for emp in long_emp:
+    #   if emp["id"]==6:
+    #     break
+    print(emp)
+
+

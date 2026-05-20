@@ -45,3 +45,9 @@ def greet_employee(name):
 welcome_employee=greet_employee
 welcome_employee("Shree") #
 ```
+## Iterator
+Its an object that allows to traverse sequnce of elements in collections one by one
+
+
+# Modules--->single .py file
+  Package--->multiple.py files put together  called as pacakage
