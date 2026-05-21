@@ -2,35 +2,41 @@
 #from data import * 
 from ems.data import employees,departments
 from ems.decorators import require_admin
+from ems.customExceptions import EmployeeNotFoundException
+# from customException import DuplicateEmployeeException,EmployeeNotFoundException
 @require_admin
 def add_employee(emp_id,name,department):
-   employees[emp_id]={
+    #duplicate Key
+    # if emp_id in employees:
+    #     raise DuplicateEmployeeException(f"{emp_id} Already Exists")
+
+    employees[emp_id]={
         "emp_id":emp_id,
         "name": name,
         "department":department,
-        "role": "Admin",
+        "role": "",
         "salary":0,
         "contact":(),# tuple
         "Skills":set(),
         "projects":[]
+       
 
     }
-   departments.add(department);
-   print(f"Employee added-->Id:{emp_id}\tName::{name}\tDepartment::{department}")
+    departments.add(department);
+    print(f"Employee added-->Id:{emp_id}\tName::{name}\tDepartment::{department}\t")
 
 def set_employee_role(emp_id,role="Trainee",salary=40000):
-    if emp_id not in employees:
-        print("Employee Not found!!")
-        return
+    
     employees[emp_id][role]=role
     employees[emp_id][salary]=salary
     print(f"Employee salary updated-->Id:{emp_id}\tRole::{role}\tSalary::{salary}")
 
 def update_employee_contact(emp_id,email,phone,city):
     if emp_id not in employees:
-        print("Employee Not found!!")
-        return
-    
+        raise EmployeeNotFoundException(f"{emp_id} Not Found")
+        #return
+        #  print("Employee Not found!!")
+      
     employees[emp_id]["contact"]=(email,phone,city)
     print(f"Employee updated::{emp_id}")
     print(f"Employee Contact updated::emali::{email}\tphone::{phone}\tcity::{city}")
@@ -55,3 +61,12 @@ def create_emp_profile(emp_id, **extra_info):
 def delete_all_employees():
     employees.clear()
     print("all records deleted")
+
+
+# def getAllEmployees():
+#     allEmployees = {
+#     emp["emp_id"]: emp["name"]
+#     for emp in employees.values()
+# }
+#     print(allEmployees)
+
