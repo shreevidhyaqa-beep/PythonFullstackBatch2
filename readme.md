@@ -51,3 +51,13 @@ Its an object that allows to traverse sequnce of elements in collections one by 
 
 # Modules--->single .py file
   Package--->multiple.py files put together  called as pacakage
+
+# datetime module is a standard library
+* date
+* time
+ * datetime
+ * timedelta
+ * timezone
+
+ # date
+ today=date.today()

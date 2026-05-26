@@ -3,6 +3,7 @@
 from ems.data import employees,departments
 from ems.decorators import require_admin
 from ems.customExceptions import EmployeeNotFoundException
+
 # from customException import DuplicateEmployeeException,EmployeeNotFoundException
 @require_admin
 def add_employee(emp_id,name,department):
@@ -25,6 +26,7 @@ def add_employee(emp_id,name,department):
     departments.add(department);
     print(f"Employee added-->Id:{emp_id}\tName::{name}\tDepartment::{department}\t")
 
+
 def set_employee_role(emp_id,role="Trainee",salary=40000):
     
     employees[emp_id][role]=role
@@ -34,6 +36,7 @@ def set_employee_role(emp_id,role="Trainee",salary=40000):
 def update_employee_contact(emp_id,email,phone,city):
     if emp_id not in employees:
         raise EmployeeNotFoundException(f"{emp_id} Not Found")
+
         #return
         #  print("Employee Not found!!")
       
@@ -63,10 +66,12 @@ def delete_all_employees():
     print("all records deleted")
 
 
-# def getAllEmployees():
-#     allEmployees = {
-#     emp["emp_id"]: emp["name"]
-#     for emp in employees.values()
-# }
-#     print(allEmployees)
+def getAllEmployees():
+    allEmployees = {
+    emp["emp_id"]: emp["name"]
+    for emp in employees.values()
+}
+    print(allEmployees)
+
+  
 
