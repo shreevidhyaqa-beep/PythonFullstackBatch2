@@ -1,5 +1,6 @@
 #import data
 #from data import * 
+from ems.fileHandling import read_employees_from_file
 from ems.data import employees,departments
 from ems.decorators import require_admin
 from ems.customExceptions import EmployeeNotFoundException
@@ -66,12 +67,13 @@ def delete_all_employees():
     print("all records deleted")
 
 
-def getAllEmployees():
-    allEmployees = {
-    emp["emp_id"]: emp["name"]
-    for emp in employees.values()
-}
-    print(allEmployees)
+# def getAllEmployees():
+#     allEmployees = {
+#     emp["emp_id"]: emp["name"]
+#     for emp in employees.values()
+# }
+#     print(allEmployees)
 
-  
+def getEmployees():
+    read_employees_from_file()
 

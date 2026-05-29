@@ -1,5 +1,6 @@
+from ems.fileHandling import save_employee_to_file
 from ems.employeeService import(
-    add_employee, getAllEmployees,update_employee_contact,add_skills,create_emp_profile,delete_all_employees
+    add_employee,  getEmployees,update_employee_contact,add_skills,create_emp_profile,delete_all_employees
 )
 from ems.customExceptions import EmployeeNotFoundException, UnauthorizedAccessException
 
@@ -17,7 +18,7 @@ while True:
             name = input("Enter Name:")
             dept = input("enter department:")
             add_employee(emp_id,name,dept)
-            save_employee_to_file()
+            save_employee_to_file()  
 
         except UnauthorizedAccessException as ue:
              print(ue)
@@ -50,7 +51,7 @@ while True:
          delete_all_employees()
 
     elif choice == 6:
-         getAllEmployees()
+        getEmployees()
 
     elif choice == 6:
         print("Thank you")
