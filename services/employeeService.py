@@ -1,0 +1,29 @@
+from exceptions.customExceptions import DuplicateEmployeeException, InvalidInputException
+from models.employ import Employee
+from utils.fileHandler import *
+class EmployService:
+    @staticmethod
+    def add_employee():
+        try:
+            emp_id=int(input("enter employee Id::"))
+            name=input("enter name::")
+            department=input("enter department::")
+            salary=float(input("Enter salary::"))
+            doj=("Enter Date of Join(DD-MM-YYYY)::")
+            #reading from file (json)
+            employees=read_employees()
+            # duplicate Employee
+            for emp in employees:
+                if emp["emp_id"]==emp_id:
+                    raise DuplicateEmployeeException("Employee Id Already Exists")
+            #creating Employee Object
+            employee=Employee(
+                emp_id,name,department,salary,doj
+            )
+            #adding Employee to the existing list
+            employees.append(employee.to_dict())
+            #call the file method to save the data
+            save_employees(employees)
+            print("Employee Added Successfully")
+        except ValueError:
+            raise InvalidInputException("Id salary values must be proper")
