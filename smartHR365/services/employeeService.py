@@ -1,6 +1,6 @@
 from exceptions.customExceptions import DuplicateEmployeeException, InvalidInputException
-from models.employ import Employee
-from utils.fileHandler import *
+from smartHR365.models.employ import Employee
+from smartHR365.utils.fileHandler import *
 class EmployService:
     @staticmethod
     def add_employee():

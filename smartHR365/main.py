@@ -1,5 +1,5 @@
 from exceptions.customExceptions import DuplicateEmployeeException
-from services.employeeService import EmployService
+from smartHR365.services.employeeService import EmployService
 
 
 while True:
