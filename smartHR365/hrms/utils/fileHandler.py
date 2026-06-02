@@ -2,7 +2,7 @@ import json
 import os
 
 
-FILE_PATH="data/employees.json"
+FILE_PATH = "hrms/data/employees.json"
 
 def read_employees():
     if not os.path.exists(FILE_PATH):

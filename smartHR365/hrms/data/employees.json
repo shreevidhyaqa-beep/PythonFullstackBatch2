@@ -1,0 +1,10 @@
+[
+    {
+        "emp_id": 200,
+        "name": "shree",
+        "department": "IT",
+        "DateOfJoin": "20-06-2026",
+        "salary": 20000.0,
+        "experience": 4
+    }
+]

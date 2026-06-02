@@ -76,52 +76,156 @@
 # #employee1.name="shree"
 #endregion
 
-class Employee:
-    #constructor
-    def __init__(self, emp_id, emp_name,salary):
-                self.emp_id=emp_id
-                self.emp_name=emp_name
-                self.salary=salary
+# class Employee:
+#     #constructor
+#     def __init__(self, emp_id, emp_name,salary):
+#                 self.emp_id=emp_id
+#                 self.emp_name=emp_name
+#                 self.salary=salary
+
+# #     def display_info(self):
+# #            print(f"Name::{self.emp_name}Salary::{self.salary}")
+
+
+# # Child class or derived Class
+# class Manager(Employee):
+#        def __init__(self,emp_id,emp_name,salary,department):
+#               #Call the Base Class Constructor
+#               super().__init__(emp_id,emp_name,salary)
+#               self.department=department
+        
+# def display_info(self):
+#     super().display_info()
+#     print(f"Department::{self.department}")
+
+# manager=Manager(101,"Shree",50000,"IT")
+# print(manager.emp_name)
     
+from abc import ABC, abstractmethod
     # String Representation of an object
-    def __str__(self):
-            return f"Id::{self.emp_id}\tName::{self.emp_name}"
+#     def __str__(self):
+#             return f"Id::{self.emp_id}\tName::{self.emp_name}"
 
-    def __len__(self):
-            return len(self.emp_name)
+#     def __len__(self):
+#             return len(self.emp_name)
     
-    def __add__(self,other):
-            return self.salary+other.salary
+#     def __add__(self,other):
+#             return self.salary+other.salary
     
     
 
-employee1=Employee("Emp101","Shree",50000)
-employee2=Employee("Emp102","Darshan",60000)
-print(employee1+employee2)
-print(employee2)
-print(len(employee2))
+# employee1=Employee("Emp101","Shree",50000)
+# employee2=Employee("Emp102","Darshan",60000)
+# print(employee1+employee2)
+# print(employee2)
+# print(len(employee2))
 
-class Calculator:
-    def __call__(self, n1, n2):
-        return n1+n2
+# class Calculator:
+#     def __call__(self, n1, n2):
+#         return n1+n2
     
-#object of Calculator class
-calc=Calculator()
-#__call__  will allow object to behave like function
-print(calc(10,20))
+# #object of Calculator class
+# calc=Calculator()
+# #__call__  will allow object to behave like function
+# print(calc(10,20))
 
-#__getitem__
+# #__getitem__
 
-class User:
-       def __init__(self):
-              self.data={
-                     "name":"shree",
-                     "salary":5000
-                }
-       def __getitem__(self, key):
-               return self.data[key]
+# class User:
+#        def __init__(self):
+#               self.data={
+#                      "name":"shree",
+#                      "salary":5000
+#                 }
+#        def __getitem__(self, key):
+#                return self.data[key]
 
 
 
-user1=User()
-print(user1["name"])
+# user1=User()
+# print(user1["name"])
+# class User:
+#        def __init__(self,name):
+#               self.name=name
+
+
+
+
+# class Student(User):
+#        def __init__(self,name,degree):
+#               super().__init__(name)
+#               self.degree=degree
+
+# student1=Student("Shree","BE")
+
+# print(f"Name::{student1.name}Degree::{student1.degree}")
+
+# # MultiLevel inheritance
+# class PremiumStudent(Student):
+#        pass
+# class Employee:
+#        def login(self):
+#               print("employee Loggedin")
+
+# class Manager(Employee):
+#        def manageProject():
+#            print("Managing project")
+
+
+# class HRManager(Manager):
+#        def shortList_candidates():
+#               print("Shortlist")
+
+# hrManager=HRManager()
+# hrManager.login()
+# hrManager.manageProject()
+# hrManager.shortList_candidates()
+
+#Polymorphism
+# poly ---many forms 
+
+
+
+# num1=10
+# num2=20
+# print(num1+num2)
+
+# firstName="shree"
+# lastName="vidhya"
+# print(firstName+lastName)
+
+# #functions
+# print(len(firstName))
+# print(len(["item1","item2","item3"]))
+
+# class Employee:
+#     def getInfo(self):
+#         print("This is Employee Class")
+    
+
+# class PermanentEmployee(Employee):
+#     def getInfo(self):
+#         print("This is Permanent Employee class")
+
+# #Method OverRiding, Dynamic Polymorphism, RunTime Polymorphism
+# pe=PermanentEmployee()
+# pe.getInfo()
+# emp=Employee()
+# emp.getInfo()
+
+# abstarction
+# showing only necessary details and hiding the internal details
+
+class Employee(ABC):
+    #concrete methods
+    def getEmployee(self):
+        print("concrete Method")
+    
+    #abstract Method
+    @abstractmethod
+    def calculate_salary(self):
+        pass
+
+# create An object of Employee
+emp=Employee()
+emp.getEmployee
