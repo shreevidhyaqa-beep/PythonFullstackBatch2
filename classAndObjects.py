@@ -102,6 +102,7 @@
 # print(manager.emp_name)
     
 from abc import ABC, abstractmethod
+import array
     # String Representation of an object
 #     def __str__(self):
 #             return f"Id::{self.emp_id}\tName::{self.emp_name}"
@@ -216,16 +217,122 @@ from abc import ABC, abstractmethod
 # abstarction
 # showing only necessary details and hiding the internal details
 
-class Employee(ABC):
-    #concrete methods
-    def getEmployee(self):
-        print("concrete Method")
+# class Employee(ABC):
+#     #concrete methods
+#     def getEmployee(self):
+#         print("concrete Method")
     
-    #abstract Method
-    @abstractmethod
-    def calculate_salary(self):
-        pass
+#     #abstract Method
+#     @abstractmethod
+#     def calculate_salary(self):
+#         pass
 
-# create An object of Employee
-emp=Employee()
-emp.getEmployee
+# # create An object of Employee
+# emp=Employee()
+# emp.getEmployee
+
+# Encapsulation
+# wrapping data(attributes) and methods in a single class
+# to restrict access and to validate data before assigning values
+
+# class Employee:
+#     def __init__(self,salary):
+#         self._salary=salary #private data
+#     @property
+#     def salary(self):
+#         return self._salary
+    
+#     @salary.setter
+#     def salary(self,value):
+#         if value>0:
+#             self._salary=value
+#         else:
+#             raise ValueError("salary must be positive")
+
+
+# #region gettter and setter Methods
+#     # def set_salary(self,salary):
+#     #     if salary>0:
+#     #         self.__salary=salary
+#     #     else:
+#     #         print("salary must be positive")
+
+#     # def get_salary(self):
+#     #     return self.__salary
+#     #endregion
+
+# #
+
+# emp1=Employee(50000)
+# emp1.salary=-40000
+# print(emp1.salary)
+# # emp1.__salary=-3000# invalid data
+# emp1.set_salary(-2000)
+# print(emp1.get_salary())
+# # print(emp1.__salary)
+
+# public ----salary
+# private----->__salary
+#protected---> _salary
+
+# class Employee(ABC):
+#     def __init__(self,empid,name,dept):
+#         self.__empid=empid
+#         self._name = name
+#         self._dept=dept
+        
+        
+#     @property
+#     def name(self):
+#         return self._name
+    
+#     @name.setter
+#     def name(self,value):
+#         if len(value)<5:
+#             raise ValueError("Name must be atleast 5 characters")
+#         self._name=value
+    
+#     @abstractmethod
+#     def calculate_salary(self):
+#         pass
+
+
+
+#     #Inheritance
+# class PermananentEmployee(Employee):
+#         def __init__(self,empid,name,dept,baseSalary,experience):
+#             super().__init__(empid,name,dept)
+#             self.baseSalary=baseSalary
+#             self.experience=experience
+
+#         def calculate_salary(self):
+#             bonus=self.experience*2000
+#             return self.baseSalary+bonus
+
+
+# emp1=PermananentEmployee(100,"shree","IT",50000,5)
+# print(emp1.calculate_salary())
+
+
+# class Sample:
+#     __age=10
+
+
+# class Sample1:
+#     pass
+ 
+
+# sampleobj=Sample()
+# # sampleobj.__age="100"
+# print (sampleobj.__age)
+
+# sample1Obj=Sample1()
+# sample1Obj.age=100
+# print(sample1Obj.age)
+
+scores=array.array('i',[90,20,40])
+scores.append(60)
+print(scores)
+print(scores[1])
+
+
